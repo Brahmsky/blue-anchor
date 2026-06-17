@@ -1,0 +1,113 @@
+__pycache__
+*.egg-info
+dickens/
+book.txt
+lightrag-dev/
+.idea/
+dist/
+env/
+local_neo4jWorkDir/
+neo4jWorkDir/
+ignore_this.txt
+.venv/
+*.ignore.*
+.ruff_cache/
+gui/
+*.log
+.vscode
+# inputs (unignored for sync)
+# rag_storage
+.env
+.chainlit/
+neo4j_data/
+*:Zone.Identifier
+venv/
+examples/input/
+examples/output/
+.DS_Store
+#Remove config.ini from repo
+*.ini
+build/
+minirag-venv/
+.env
+GraphRAG_H5WSiFtMal3e5okd9wd4oh
+.codex
+.omx/
+.codex/*
+!.codex/agents/
+!.codex/agents/**
+!.codex/skills/
+!.codex/skills/**
+.codex/skills/.system/**
+!.codex/prompts/
+!.codex/prompts/**
+.bg-shell/
+.chrome-headless-light/
+.playwright-mcp/
+graph-visuals/*.html
+development_docs/prompt_injection_backups/
+output/*.png
+rag-chat-page.png
+minirag/api/static/
+dataset/Ship-Repair-Benchmark/benchmark_output.csv
+uv.lock
+/package.json
+package-lock.json
+.gstack/
+.sisyphus
+.claude/
+.pytest_cache/
+.mypy_cache/
+.cache/
+.ipynb_checkpoints/
+*.pid
+*.tmp
+*.bak
+*.orig
+*.sqlite
+*.sqlite3
+*.db
+.worktrees/
+
+# local/runtime artifacts
+correct_QA.csv
+judged_results.csv
+datasources/*/outputs/benchmark/*_pre_opt_*.csv
+
+# secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# local model/runtime config
+config/*local*.json
+config/*private*.json
+
+# private datasource assets and generated outputs
+datasources/*/source/raw/**
+datasources/*/staging/**
+datasources/*/outputs/**
+!datasources/*/source/raw/.gitkeep
+
+# generated indexes / databases
+**/workdir/**
+**/neo4j_data/**
+*.faiss
+*.pkl
+*.npy
+*.parquet
+*.jsonl
+
+# benchmark/generated result files
+*benchmark*.csv
+*judged*.csv
+
+# local agent/session state
+.session-log/
+.dolt/
+.beads-credential-key

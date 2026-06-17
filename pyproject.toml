@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "8g3s-graphrag"
+version = "0.1.0"
+authors = [
+    { name = "BlueAnchor Team" },
+]
+description = "Ship equipment fault diagnosis GraphRAG built on MiniRAG, with a fault-card data pipeline and faultcase_fast retrieval."
+readme = "README.md"
+requires-python = ">=3.9,<3.13"
+keywords = ["graphrag", "rag", "ship-repair", "fault-diagnosis", "minirag"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "aiofiles",
+    "ascii_colors",
+    "fastapi",
+    "graspologic",
+    "httpx",
+    "jieba",
+    "json_repair",
+    "nano-vectordb",
+    "neo4j",
+    "networkx",
+    "nltk",
+    "numpy",
+    "openai",
+    "pipmaster",
+    "pyvis",
+    "pydantic",
+    "PyPDF2",
+    "python-docx",
+    "python-dotenv",
+    "python-multipart",
+    "python-pptx",
+    "rank-bm25",
+    "requests",
+    "rouge",
+    "tenacity",
+    "tiktoken",
+    "tqdm",
+    "uvicorn",
+    "xxhash",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov",
+    "pytest-xdist",
+]
+
+[tool.setuptools.packages.find]
+include = ["minirag*", "data_pipeline*"]
+exclude = [
+    "datasources*",
+    "frontend*",
+    "docs*",
+    "tests*",
+    "tools*",
+]
+
+[project.scripts]
+minirag-server = "minirag.api.minirag_server:main"

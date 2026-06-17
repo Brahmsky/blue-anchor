@@ -1,0 +1,33 @@
+{
+  "llm_models": [
+    {
+      "id": "qwen3.5-2b",
+      "label": "LM Studio Qwen 3.5 2B",
+      "binding": "openai",
+      "host": "http://localhost:1234/v1",
+      "host_env": "LMSTUDIO_HOST",
+      "model": "qwen3.5-2b",
+      "api_key": "EMPTY",
+      "api_key_env": "LMSTUDIO_API_KEY",
+      "roles": ["index", "query", "benchmark"]
+    }
+  ],
+  "embedding_models": [
+    {
+      "id": "embedding-default",
+      "label": "Default Embedding",
+      "binding": "openai",
+      "host": "http://localhost:1234/v1",
+      "host_env": "LMSTUDIO_HOST",
+      "model": "text-embedding-qwen3-embedding-4b",
+      "api_key": "EMPTY",
+      "api_key_env": "LMSTUDIO_API_KEY",
+      "roles": ["embedding"]
+    }
+  ],
+  "defaults": {
+    "index_llm_id": "qwen3.5-2b",
+    "query_llm_id": "qwen3.5-2b",
+    "embedding_model_id": "embedding-default"
+  }
+}

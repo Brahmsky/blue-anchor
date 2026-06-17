@@ -1,0 +1,11 @@
+{
+  "selected_model": "qwen3.5-2b",
+  "rows": [
+    {
+      "Question": "舵机方向盘回转时舵效明显较差或无舵效，常见是什么原因？",
+      "Gold Answer": "舵机液压油泄漏；手动泵油位低；液压系统管路中有空气",
+      "Evidence": "DOC01::1 机电设备部分 > 1.1 操舵故障",
+      "Type": "Single"
+    }
+  ]
+}

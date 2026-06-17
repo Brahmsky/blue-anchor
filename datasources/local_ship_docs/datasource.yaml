@@ -1,0 +1,9 @@
+id: local_ship_docs
+name: 船舶维修资料库
+type: local_fs
+paths:
+  source_root: ./source/raw
+  staging_root: ./staging
+  output_root: ./outputs
+pipeline:
+  profile: ship_faultcase_graph

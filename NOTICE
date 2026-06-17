@@ -1,0 +1,4 @@
+Blue Anchor GraphRAG is based on MiniRAG.
+
+Original copyright and MIT license notices are retained in LICENSE.
+Additional modifications in this repository focus on ship-maintenance fault diagnosis experiments, datasource management, and fault-case retrieval.

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "local_ship_docs",
+    "name": "Local ship maintenance datasource skeleton",
+    "type": "local_fs",
+    "path": "./datasources/local_ship_docs"
+  },
+  {
+    "id": "demo_ship_docs",
+    "name": "Hand-written demo ship maintenance datasource",
+    "type": "local_fs",
+    "path": "./examples/demo_datasource"
+  }
+]
