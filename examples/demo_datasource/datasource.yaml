@@ -1,9 +1,0 @@
-id: demo_ship_docs
-name: Hand-written demo ship maintenance datasource
-type: local_fs
-paths:
-  source_root: ./source/raw
-  staging_root: ./staging
-  output_root: ./outputs
-pipeline:
-  profile: ship_faultcase_graph

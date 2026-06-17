@@ -1,14 +1,8 @@
 [
   {
     "id": "local_ship_docs",
-    "name": "Local ship maintenance datasource skeleton",
+    "name": "船舶维修资料库",
     "type": "local_fs",
     "path": "./datasources/local_ship_docs"
-  },
-  {
-    "id": "demo_ship_docs",
-    "name": "Hand-written demo ship maintenance datasource",
-    "type": "local_fs",
-    "path": "./examples/demo_datasource"
   }
 ]

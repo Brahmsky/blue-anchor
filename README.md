@@ -1,33 +1,66 @@
-# Blue Anchor GraphRAG
+# 蓝锚船舶装备故障诊断系统
 
-A domain-oriented GraphRAG prototype for ship maintenance and fault diagnosis.
+蓝锚是一套面向船舶维修场景的装备故障诊断与知识检索系统。系统围绕维修文档、故障现象、设备部件、原因分析和处理措施构建领域知识库，为船舶设备故障排查提供结构化查询、图谱浏览和问答辅助能力。
 
-This repository is based on MiniRAG and adds a ship-maintenance fault-card pipeline, graph-enhanced retrieval, hybrid chunk recall, a FastAPI backend, and a Vue 3 frontend.
+## 核心能力
 
-## Features
+- 船舶维修文档入库与知识组织
+- 故障现象、原因、处理措施和关键部件提取
+- 装备、部件、故障案例之间的知识图谱关联
+- 图谱检索、文本检索和关键词检索融合
+- 船舶装备故障问答与证据内容展示
+- 知识库文档管理、图谱浏览、别名维护和效果评估
 
-- Fault-case extraction from maintenance documents
-- Graph-enhanced retrieval over equipment, components, and fault cases
-- Hybrid text and graph query modes
-- FastAPI backend with streaming query support
-- Vue 3 frontend for knowledge-base management, graph exploration, and RAG chat
-- Benchmark and evaluation utilities
+## 系统模块
 
-## Public Data Policy
+### 知识库管理
 
-This public repository does not include proprietary or real maintenance datasets.
+支持维修资料的统一管理，展示文档状态、分块内容、图谱节点和关联信息，便于持续维护领域知识库。
 
-The tracked `local_ship_docs` datasource is only a skeleton:
+### 图谱探索
+
+围绕装备、部件和故障案例展示知识图谱结构，支持查看节点详情、关系信息和关联证据。
+
+### 故障问答
+
+根据用户输入的故障现象、设备名称或处理问题，融合图谱与文本内容生成诊断参考，并展示相关依据。
+
+### 别名管理
+
+支持设备名、部件名和故障表达的别名维护，提高不同表述下的检索命中率。
+
+### 效果评估
+
+支持按题集执行问答评估，统计不同检索模式下的回答效果，为系统优化提供量化依据。
+
+## 技术栈
+
+- 后端：Python、FastAPI
+- 图谱：Neo4j、NetworkX
+- 检索：向量检索、BM25、图谱召回
+- 前端：Vue 3、TypeScript、Vite
+- 数据处理：Markdown 解析、结构化抽取、知识卡片生成
+
+## 项目结构
 
 ```text
-datasources/local_ship_docs/
-  datasource.yaml
-  source/raw/.gitkeep
+minirag/          后端服务、检索流程、图谱与存储接口
+data_pipeline/    文档处理与知识构建流水线
+frontend/         Web 前端应用
+config/           模型与运行配置模板
+tools/            数据转换、校验和辅助工具
+tests/            自动化测试
 ```
 
-Use `examples/demo_datasource/` for a tiny hand-written demo, or prepare your own documents under a private datasource directory.
+## 应用场景
 
-## Quick Start
+- 船舶装备日常维修知识查询
+- 典型故障原因分析与处理建议检索
+- 维修资料结构化管理
+- 船舶设备知识图谱展示
+- 故障诊断系统课程设计与项目展示
+
+## 运行方式
 
 ```bash
 uv sync
@@ -35,15 +68,7 @@ cp .env.example .env
 uv run minirag-server
 ```
 
-Run with the demo datasource explicitly:
-
-```bash
-uv run python -m minirag.api.minirag_server \
-  --port 9733 \
-  --datasource-root ./examples/demo_datasource
-```
-
-Frontend:
+前端运行：
 
 ```bash
 cd frontend
@@ -51,32 +76,6 @@ pnpm install
 pnpm run dev
 ```
 
-## Datasource Layout
+## License
 
-Each datasource follows this shape:
-
-```text
-<datasource>/
-  datasource.yaml
-  source/raw/      # input documents
-  staging/         # generated intermediate files, ignored by git
-  outputs/         # generated graph, cards, indexes, exports, ignored by git
-```
-
-Generated datasource artifacts are intentionally ignored. Do not commit real raw documents, extracted chunks, graph workdirs, vector indexes, fault cards, benchmark outputs, or model-generated private content.
-
-## Common Commands
-
-```bash
-uv run pytest
-uv run pytest tests/test_faultcase_fast_query.py -v
-uv run pytest --cov=minirag --cov-report=term
-```
-
-Data pipeline scripts live in `data_pipeline/scripts/` and should be run against your own datasource with `--datasource-root` or `--datasource-id`.
-
-## License and Attribution
-
-This project is based on MiniRAG. The original MIT license and copyright notice are retained in `LICENSE`.
-
-Additional modifications are made for domain-specific ship maintenance GraphRAG experiments.
+MIT License
